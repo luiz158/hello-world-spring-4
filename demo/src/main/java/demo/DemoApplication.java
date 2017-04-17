@@ -1,5 +1,6 @@
 package demo;
 
+import demo.controllers.GreetingController;
 import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,11 +13,7 @@ public class DemoApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
-        HelloWorldServiceImpl helloWorld = (HelloWorldServiceImpl) ctx.getBean("helloWorldServiceImpl");
-        helloWorld.sayHello();
-        InjectedByConstructor injectedByConstructor =(InjectedByConstructor)ctx.getBean("injectedByConstructor");
-        injectedByConstructor.sayHello();
-        SetterBasedService setterBasedService = (SetterBasedService)ctx.getBean("setterBasedService");
-        setterBasedService.sayHello();
+        GreetingController greetingController = (GreetingController)ctx.getBean("greetingController");
+        System.out.println(greetingController.sayHello());
     }
 }
