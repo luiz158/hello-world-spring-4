@@ -1,14 +1,13 @@
-package demo;
+package demo.springboot;
 
 import demo.controllers.GreetingController;
-import jdk.nashorn.internal.objects.annotations.Setter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import java.util.Set;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan({"demo"})
 public class DemoApplication {
 
     public static void main(String[] args) {
