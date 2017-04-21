@@ -1,5 +1,6 @@
 package demo.config;
 
+import demo.services.HelloWorldFactory;
 import demo.services.HelloWorldService;
 import demo.services.HelloWorldServiceEnglishImpl;
 import demo.services.HelloWorldServiceSpanishImpl;
@@ -15,12 +16,26 @@ public class HelloWorldConfig {
 
     @Bean
     @Profile({"English","default"})
-    public HelloWorldService helloWorldServiceEnglish(){
-        return new HelloWorldServiceEnglishImpl();
+    public HelloWorldService helloWorldServiceEnglish(HelloWorldFactory helloWorldFactory){
+        return helloWorldFactory.createHelloWorldService("English");
     }
     @Bean
     @Profile("Spanish")
-    public HelloWorldService helloWorldServiceSpanish(){
-        return new HelloWorldServiceSpanishImpl();
+    public HelloWorldService helloWorldServiceSpanish(HelloWorldFactory helloWorldFactory){
+        return helloWorldFactory.createHelloWorldService("Spanish");
+    }
+    @Bean
+    @Profile("Tamil")
+    public HelloWorldService helloWorldServiceTamil(HelloWorldFactory helloWorldFactory){
+        return helloWorldFactory.createHelloWorldService("Tamil");
+    }
+    @Bean
+    @Profile("Hindi")
+    public HelloWorldService helloWorldServiceHindi(HelloWorldFactory helloWorldFactory){
+        return helloWorldFactory.createHelloWorldService("Hindi");
+    }
+    @Bean
+    public HelloWorldFactory helloWorldFactory(){
+        return new HelloWorldFactory();
     }
 }
