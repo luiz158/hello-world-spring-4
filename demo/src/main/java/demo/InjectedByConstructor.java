@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 /**
  * Created by Bheesma on 4/16/2017.
  */
-@Component
 public class InjectedByConstructor {
     HelloWorldService helloWorldService;
     @Autowired
