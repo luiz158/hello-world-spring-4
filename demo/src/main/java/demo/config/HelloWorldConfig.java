@@ -6,6 +6,7 @@ import demo.services.HelloWorldServiceEnglishImpl;
 import demo.services.HelloWorldServiceSpanishImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 
 /**
@@ -20,17 +21,17 @@ public class HelloWorldConfig {
         return helloWorldFactory.createHelloWorldService("English");
     }
     @Bean
-    @Profile("Spanish")
+   @Profile("Spanish")
     public HelloWorldService helloWorldServiceSpanish(HelloWorldFactory helloWorldFactory){
         return helloWorldFactory.createHelloWorldService("Spanish");
     }
     @Bean
-    @Profile("Tamil")
+    //@Profile("Tamil")
     public HelloWorldService helloWorldServiceTamil(HelloWorldFactory helloWorldFactory){
         return helloWorldFactory.createHelloWorldService("Tamil");
     }
     @Bean
-    @Profile("Hindi")
+    @Primary
     public HelloWorldService helloWorldServiceHindi(HelloWorldFactory helloWorldFactory){
         return helloWorldFactory.createHelloWorldService("Hindi");
     }
