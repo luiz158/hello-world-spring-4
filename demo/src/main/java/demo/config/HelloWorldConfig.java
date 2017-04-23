@@ -20,8 +20,8 @@ public class HelloWorldConfig {
     public HelloWorldService helloWorldServiceEnglish(HelloWorldFactory helloWorldFactory){
         return helloWorldFactory.createHelloWorldService("English");
     }
-    @Bean
-   @Profile("Spanish")
+    @Bean(name="spanishHello")
+   //@Profile("Spanish")
     public HelloWorldService helloWorldServiceSpanish(HelloWorldFactory helloWorldFactory){
         return helloWorldFactory.createHelloWorldService("Spanish");
     }
